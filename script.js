@@ -26,7 +26,6 @@ const statusEl    = document.getElementById('status');
 const preview     = document.getElementById('preview');
 const previewJson = document.getElementById('previewJson');
 
-// Inline error elements
 const err = {
   type: document.getElementById('rt-error'),
   year: document.getElementById('year-error'),
@@ -45,7 +44,7 @@ function setActiveChip(idx){
   });
   chipGroup.dataset.activeIndex = String(idx);
   selectedType = idx>=0 ? chips[idx].dataset.value : null;
-  renderPreview(); // live update
+  renderPreview(); 
 }
 
 chipGroup.addEventListener('click', (e)=>{
@@ -147,7 +146,6 @@ renderPreview();
 });
 chips.forEach(c=>c.addEventListener('click', ()=>{ validate(); renderPreview(); }));
 
-// ---- prepareAgentRequest (as required)
 function prepareAgentRequest(){
   const ok = validate();
   if(!ok){
@@ -160,7 +158,6 @@ function prepareAgentRequest(){
   return payload;
 }
 
-// ---- Generate click: call backend if configured, else just preview
 document.getElementById('generate').addEventListener('click', async ()=>{
   const payload = prepareAgentRequest();
   if(!payload) return;
@@ -195,5 +192,4 @@ document.getElementById('generate').addEventListener('click', async ()=>{
   setTimeout(()=> statusEl.textContent = "", 2000);
 });
 
-// expose for console if needed
 window.prepareAgentRequest = prepareAgentRequest;
