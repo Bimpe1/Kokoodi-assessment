@@ -1,0 +1,27 @@
+.hint{ font-size:11.5px; color:var(--muted); margin-top:6px }
+
+.toolbar{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px }
+.toggle{ display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#c8d2ea; user-select:none; }
+.toggle input{ appearance:none; width:32px; height:20px; border-radius:999px; background:#0f1422; border:1px solid rgba(255,255,255,.12); position:relative; transition:.2s }
+.toggle input::after{ content:""; position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#cfd8f3; transition:.2s }
+.toggle input:checked{ background:#173259; border-color:#376fbf }
+.toggle input:checked::after{ transform:translateX(12px); background:#eaf3ff }
+
+.btn{
+  width:100%; margin-top:16px; padding:12px 16px; border:none; border-radius:12px; cursor:pointer;
+  background: linear-gradient(180deg, var(--brand), var(--brand-dark)); color:white; font-weight:900; letter-spacing:.3px; font-size:14px;
+  box-shadow: 0 8px 20px rgba(77,163,255,.25); transition: transform .06s ease, box-shadow .2s ease;
+}
+.btn:hover{ box-shadow: 0 12px 26px rgba(77,163,255,.32) }
+.btn:active{ transform: translateY(1px) }
+
+.status{ font-size:12.5px; min-height:1em }
+.status.ok{ color:var(--ok) } .status.warn{ color:var(--warn) } .status.err{ color:var(--err) }
+
+.footnote{ margin-top:14px; color:var(--muted); font-size:11.5px; text-align:center }
+
+.preview{
+  margin-top:12px; padding:12px; border-radius:10px; border:1px dashed rgba(255,255,255,.15); background:#101423;
+}
+.preview h2{ font-size:13px; margin:0 0 8px; color:#cfd8f3 }
+.codeblock{ margin:0; white-space:pre-wrap; word-break:break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; color:#dfe8ff }
