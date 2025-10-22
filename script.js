@@ -25,6 +25,8 @@ const remember    = document.getElementById('remember');
 const statusEl    = document.getElementById('status');
 const preview     = document.getElementById('preview');
 const previewJson = document.getElementById('previewJson');
+
+// Inline error elements
 const err = {
   type: document.getElementById('rt-error'),
   year: document.getElementById('year-error'),
@@ -32,6 +34,7 @@ const err = {
 };
 
 let selectedType = null;
+
 
 function setActiveChip(idx){
   chips.forEach((c,i)=>{
@@ -137,13 +140,14 @@ function renderPreview(){
 }
 renderPreview();
 
+// Bind live updates
 ['change','input','keyup'].forEach(evt=>{
   yearSel.addEventListener(evt, ()=>{ validate(); renderPreview(); });
   clientInput.addEventListener(evt, ()=>{ validate(); renderPreview(); });
 });
 chips.forEach(c=>c.addEventListener('click', ()=>{ validate(); renderPreview(); }));
 
-// Part2: prepareAgentRequest 
+// ---- prepareAgentRequest (as required)
 function prepareAgentRequest(){
   const ok = validate();
   if(!ok){
@@ -156,6 +160,7 @@ function prepareAgentRequest(){
   return payload;
 }
 
+// ---- Generate click: call backend if configured, else just preview
 document.getElementById('generate').addEventListener('click', async ()=>{
   const payload = prepareAgentRequest();
   if(!payload) return;
@@ -190,4 +195,5 @@ document.getElementById('generate').addEventListener('click', async ()=>{
   setTimeout(()=> statusEl.textContent = "", 2000);
 });
 
+// expose for console if needed
 window.prepareAgentRequest = prepareAgentRequest;
