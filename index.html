@@ -1,4 +1,28 @@
-                <div class="label">Reporting Year</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kokoodi • Generate Financial Report</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1 class="title">Generate Financial Report</h1>
+      <!-- Report Type -->
+      <div class="section">
+        <div class="label">Report Type</div>
+        <div class="chips" id="reportType">
+          <button class="chip" data-value="P&L">P&amp;L</button>
+          <button class="chip" data-value="Balance Sheet">Balance Sheet</button>
+          <button class="chip" data-value="Cash Flow">Cash Flow</button>
+        </div>
+      </div>
+
+      <div class="section row">
+        <div class="field">
+<div class="label">Reporting Year</div>
           <select id="reportYear" aria-label="Reporting Year"></select>
           <div class="hint">Choose 2025, 2024, 2023…</div>
         </div>
