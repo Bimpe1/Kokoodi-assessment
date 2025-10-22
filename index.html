@@ -7,47 +7,44 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="wrap">
-    <section class="card">
-      <h1 class="title">Generate Financial Report</h1>
-      <!-- Report Type -->
+  <main class="wrap" role="main">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title" class="title">Generate Financial Report</h1>
+
       <div class="section">
-        <div class="label">Report Type</div>
-        <div class="chips" id="reportType">
-          <button class="chip" data-value="P&L">P&amp;L</button>
-          <button class="chip" data-value="Balance Sheet">Balance Sheet</button>
-          <button class="chip" data-value="Cash Flow">Cash Flow</button>
+        <div class="label" id="rt-label">Report Type</div>
+        <div class="chips"
+             id="reportType"
+             role="radiogroup"
+             aria-labelledby="rt-label"
+             data-active-index="-1">
+          <button class="chip" role="radio" aria-checked="false" tabindex="0" data-value="P&L">P&amp;L</button>
+          <button class="chip" role="radio" aria-checked="false" tabindex="-1" data-value="Balance Sheet">Balance Sheet</button>
+          <button class="chip" role="radio" aria-checked="false" tabindex="-1" data-value="Cash Flow">Cash Flow</button>
         </div>
+        <p id="rt-error" class="error" aria-live="polite"></p>
       </div>
 
       <div class="section row">
         <div class="field">
-<div class="label">Reporting Year</div>
-          <select id="reportYear" aria-label="Reporting Year"></select>
-          <div class="hint">Choose 2025, 2024, 2023…</div>
+          <div class="label"><label for="reportYear">Reporting Year</label></div>
+          <select id="reportYear" aria-describedby="year-hint year-error"></select>
+          <div id="year-hint" class="hint">Choose 2025, 2024, 2023…</div>
+          <p id="year-error" class="error" aria-live="polite"></p>
         </div>
-        <div class="field">
-          <div class="label">Client Name or ID</div>
-          <input id="clientId" type="text" placeholder="e.g. Bimpe Ltd or 00123" />
-        </div>
-      </div>
-
-      <!-- Bonus: Remember settings -->
-      <div class="toolbar">
-        <label class="toggle" title="Remember last used settings">
-          <input id="remember" type="checkbox" />
-          <span>Remember settings</span>
+        <div class="field"> <span>Remember settings</span>
         </label>
-        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
-      <button id="generate" class="btn">Generate Report</button>
-      <p class="footnote">Adebimpe Adetoba • Kokoodi </p>
+      <button id="generate" class="btn" aria-describedby="submit-hint">Generate Report</button>
+      <p id="submit-hint" class="hint">Tip: You’ll get a .docx if the backend URL is set.</p>
+
+      <p class="footnote">Created by Adebimpe Adetoba • Kokoodi Assessment</p>
     </section>
 
-    <!-- Preview pane -->
-    <section class="preview" id="preview" hidden>
-      <h2>Request Preview</h2>
+    <section class="preview" id="preview">
+      <h2 class="preview-title">Live Request Preview</h2>
       <pre id="previewJson" class="codeblock">{}</pre>
     </section>
   </main>
