@@ -11,6 +11,7 @@
     <section class="card" aria-labelledby="title">
       <h1 id="title" class="title">Generate Financial Report</h1>
 
+      <!-- Report Type -->
       <div class="section">
         <div class="label" id="rt-label">Report Type</div>
         <div class="chips"
@@ -32,17 +33,28 @@
           <div id="year-hint" class="hint">Choose 2025, 2024, 2023…</div>
           <p id="year-error" class="error" aria-live="polite"></p>
         </div>
-        <div class="field"> <span>Remember settings</span>
+        <div class="field">
+          <div class="label"><label for="clientId">Client Name or ID</label></div>
+          <input id="clientId" type="text" placeholder="e.g. Acme Ltd or 00123" aria-describedby="client-error" />
+          <p id="client-error" class="error" aria-live="polite"></p>
+        </div>
+      </div>
+      
+      <div class="toolbar">
+        <label class="toggle" title="Remember last used settings">
+          <input id="remember" type="checkbox" />
+          <span>Remember settings</span>
         </label>
+        
         <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <button id="generate" class="btn" aria-describedby="submit-hint">Generate Report</button>
       <p id="submit-hint" class="hint">Tip: You’ll get a .docx if the backend URL is set.</p>
-
       <p class="footnote">Created by Adebimpe Adetoba • Kokoodi Assessment</p>
     </section>
 
+    <!-- Live Preview-->
     <section class="preview" id="preview">
       <h2 class="preview-title">Live Request Preview</h2>
       <pre id="previewJson" class="codeblock">{}</pre>
