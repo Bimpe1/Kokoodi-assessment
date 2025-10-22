@@ -1,0 +1,37 @@
+      </div>
+
+      <div class="section row">
+        <div class="field">
+          <div class="label">Reporting Year</div>
+          <select id="reportYear" aria-label="Reporting Year"></select>
+          <div class="hint">Choose 2025, 2024, 2023…</div>
+        </div>
+        <div class="field">
+          <div class="label">Client Name or ID</div>
+          <input id="clientId" type="text" placeholder="e.g. Adebimpe Ltd or 0001" />
+        </div>
+      </div>
+
+      <!--Bonus: Remember settings-->
+      <div class="toolbar">
+        <label class="toggle" title="Remember last used settings">
+          <input id="remember" type="checkbox" />
+          <span>Remember settings</span>
+        </label>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <button id="generate" class="btn">Generate Report</button>
+      <p class="footnote">Created by Adebimpe Adetoba for the Kokoodi Assessment</p></p>
+    </section>
+
+    <!-- Preview pane(bonus) -->
+    <section class="preview" id="preview" hidden>
+      <h2>Request Preview</h2>
+      <pre id="previewJson" class="codeblock">{}</pre>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
